@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bucket : MonoBehaviour
+public class Bucket : MonoBehaviour
 {
-    public int coinValue = 20; 
+    public int coinValue = 20;
     private SlotMachine slotMachine;
 
     void Start()
@@ -14,10 +14,11 @@ public class bucket : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Collectible")) 
+        if (other.gameObject.CompareTag("Collectible"))
         {
-            slotMachine.ChangeMoney(coinValue); 
-            Destroy(other.gameObject); 
+            slotMachine.ChangeEnerge(coinValue);
+            slotMachine.SaveEnerge();
+            Destroy(other.gameObject);
         }
     }
 }

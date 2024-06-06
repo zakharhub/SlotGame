@@ -9,6 +9,7 @@ TagManager:
   - LeftButton
   - RightButton
   - KnockbackObject
+  - Coin
   layers:
   - Default
   - TransparentFX
