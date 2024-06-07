@@ -10,6 +10,8 @@ TagManager:
   - RightButton
   - KnockbackObject
   - Coin
+  - Heart
+  - SlotMachine
   layers:
   - Default
   - TransparentFX
