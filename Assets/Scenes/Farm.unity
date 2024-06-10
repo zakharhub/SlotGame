@@ -1475,7 +1475,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0442281, y: -7.665386}
+  m_Offset: {x: -1.4740629, y: -7.665386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1486,7 +1486,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.684623, y: 3.0626736}
+  m_Size: {x: 18.08413, y: 3.0626736}
   m_EdgeRadius: 0
 --- !u!4 &736138008
 Transform:
@@ -1595,7 +1595,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 839367357}
   minX: -2.6
   maxX: 2.6
-  spawnInterval: 0.5
+  spawnInterval: 0.8
 --- !u!4 &2039217423
 Transform:
   m_ObjectHideFlags: 0
