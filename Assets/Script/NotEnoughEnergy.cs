@@ -5,25 +5,30 @@ public class NotEnoughEnergy : MonoBehaviour
 {
     public GameObject notEnoughEnergyImage;
     public Button button;
-    public float popupDuration = 3f; 
-    private SlotMachine slotMachine; 
-    private bool isPopupShowing = false; 
-    private float popupTimer = 0f; 
+    public float popupDuration = 3f;
+    //private SlotMachine slotMachine; 
+    private bool isPopupShowing = false;
+    private float popupTimer = 0f;
+
+    private void OnEnable()
+    {
+        button.onClick.AddListener(OnButtonClick);
+
+    }
 
     private void Start()
     {
-        slotMachine = FindObjectOfType<SlotMachine>(); 
-        HideNotEnoughEnergyImage(); 
-        button.onClick.AddListener(OnButtonClick); 
+        //slotMachine = FindObjectOfType<SlotMachine>(); 
+        HideNotEnoughEnergyImage();
     }
 
     private void Update()
     {
-        
+
         if (isPopupShowing)
         {
             popupTimer += Time.deltaTime;
-            
+
             if (popupTimer >= popupDuration)
             {
                 HideNotEnoughEnergyImage();
@@ -35,12 +40,12 @@ public class NotEnoughEnergy : MonoBehaviour
 
     void OnButtonClick()
     {
-        
-        if (slotMachine != null && slotMachine.energe < 20)
-        {
-            ShowNotEnoughEnergyImage();
-            isPopupShowing = true;
-        }
+
+        // if (slotMachine != null && slotMachine.energe < 20)
+        //{
+        ShowNotEnoughEnergyImage();
+        isPopupShowing = true;
+        //}
     }
 
     void ShowNotEnoughEnergyImage()
