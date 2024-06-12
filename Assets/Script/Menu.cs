@@ -6,6 +6,7 @@ public class Menu : MonoBehaviour
 {
     public void _SceneNumber(int n)
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(n);
     }
 
