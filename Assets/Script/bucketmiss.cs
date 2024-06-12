@@ -1,16 +1,20 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class bucketmiss : MonoBehaviour
 {
-    public string targetSceneName;
     private int collisionCount = 0;
 
     private HeartManager heartManager;
+    private SlotMachine slotMachine;
+
+    public Text energyText;
+    public GameObject gameOverPanel;
 
     private void Start()
     {
         heartManager = FindObjectOfType<HeartManager>();
+        slotMachine = FindObjectOfType<SlotMachine>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +28,14 @@ public class bucketmiss : MonoBehaviour
 
         if (collisionCount >= 1)
         {
-            SceneManager.LoadScene(targetSceneName);
+            ShowGameOver();
         }
+    }
+
+    private void ShowGameOver()
+    {
+        Time.timeScale = 0; 
+        energyText.text = "" + slotMachine.GetSessionEnerge().ToString();
+        gameOverPanel.SetActive(true);
     }
 }

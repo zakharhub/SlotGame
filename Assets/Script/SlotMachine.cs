@@ -12,6 +12,8 @@ public class SlotMachine : MonoBehaviour
     public int energe;
     public Text energeText;
 
+    private int initialEnerge;
+
     public int price;
     public Slot[] slots;
     public Combinations[] combinations;
@@ -22,7 +24,7 @@ public class SlotMachine : MonoBehaviour
 
     private string moneySaveKey = "PlayerMoney";
     private string energeSaveKey = "PlayerEnerge";
-  
+
     public Button deactivateButton;
     public GameObject objectToDeactivate1;
     public GameObject objectToDeactivate2;
@@ -41,7 +43,6 @@ public class SlotMachine : MonoBehaviour
         Debug.Log("Loaded Money: " + money);
         UpdateMoneyUI();
 
-        
         if (PlayerPrefs.HasKey(energeSaveKey))
         {
             energe = PlayerPrefs.GetInt(energeSaveKey);
@@ -50,10 +51,10 @@ public class SlotMachine : MonoBehaviour
         {
             energe = 0;
         }
+        initialEnerge = energe;
         Debug.Log("Loaded Energe: " + energe);
         UpdateEnergeUI();
 
-        
         if (deactivateButton != null)
         {
             deactivateButton.onClick.AddListener(DeactivateObjects);
@@ -94,6 +95,16 @@ public class SlotMachine : MonoBehaviour
         energe += amount;
         UpdateEnergeUI();
         SaveEnerge();
+    }
+
+    public int GetEnerge()
+    {
+        return energe;
+    }
+
+    public int GetSessionEnerge()
+    {
+        return energe - initialEnerge;
     }
 
     public void Spin()
@@ -198,3 +209,5 @@ public class Combinations
     public int prize;
     public int energePrize;
 }
+
+
